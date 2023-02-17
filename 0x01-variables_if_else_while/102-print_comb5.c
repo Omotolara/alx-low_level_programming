@@ -10,6 +10,7 @@ int main(void)
 {
 	int i, j;
 	int a, b, c, d;
+
 	for (i = 0; i < 100; i++)
 	{
 		a = i / 10; /* doubles fnum */
