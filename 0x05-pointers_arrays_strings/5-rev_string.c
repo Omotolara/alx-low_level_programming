@@ -9,6 +9,7 @@
 void rev_string(char *s)
 {
 	char ch, *p, *q;
+	
 	for (q = s; *q != '\0'; ++q)
 	{
 		if (q > s)
