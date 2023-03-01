@@ -5,7 +5,6 @@
  * @s: the string
  * Return: string
  */
-
 char *leet(char *s)
 {
 	int i;
