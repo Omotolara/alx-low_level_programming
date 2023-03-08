@@ -1,51 +1,36 @@
 #include "main.h"
+#include <stdio.h>
+
+int check_prime(int n, int i);
 
 /**
- * is_prime_number - determines if a number is a prime number
- * @n: int number
- * Return: 1 if prime, 0 otherwise
- */
-
+  * is_prime_number - returns if a number is prime
+  * @n: the 
+  *
+  * Return: 1 if prime number
+  */
 int is_prime_number(int n)
 {
-	if (n < 2)
-		return (0);
-	if (n < 4)
-		return (1);
-	return (prime(n, 2));
+	return (check_prime(n, 1));
 }
 
 /**
- * _sqrt - return square root of number
- * @x: number
- * @i: number incrementer acting as divisor
- * Return: square root of `x`
- */
-
-int _sqrt(int x, int i)
+  * check_prime - checks if number is prime
+  * @n: the number
+  * @i: the iteration times
+  *
+  * Return: 1 for prime or 0 composite
+  */
+int check_prime(int n, int i)
 {
-	int square;
-
-	square = i * i;
-	if (square >= x)
-		return (i);
-	else
-		return (_sqrt(x, i + 1));
-}
-
-/**
- * prime - helper function, recursive steps taken
- * @n: number given to original function is_prime_number
- * @d: incrementer divisor
- * Return: 0 if not prime, 1 if prime
- */
-
-int prime(int n, int d)
-{
-	if (n % d == 0)
+	if (n <= 1)
 		return (0);
-	else if (_sqrt(n, 1) < d)
+
+	if (n % i == 0 && i > 1)
+		return (0);
+
+	if ((n / i) < i)
 		return (1);
-	else
-		return (prime(n, d + 1));
+
+	return (check_prime(n, i + 1));
 }
