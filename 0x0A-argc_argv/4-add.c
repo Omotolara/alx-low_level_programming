@@ -11,42 +11,25 @@
 
 int main(int argc, char *argv[])
 {
-	int total, count;
-	unsigned int i;
+	int total, i;
 	char *p;
-	int cents[] = {25, 10, 5, 2};
+	int num;
 
-	if (argc != 2)
+	total = 0;
+	if (argc > 1)
 	{
-		printf("Error\n");
-		return (1);
-	}
-
-	total = strtol(argv[1], &p, 10);
-	count = 0;
-
-	if (!*p)
-	{
-		while (total > 1)
+		for (i = 1; argv[i]; i++)
 		{
-			for (i = 0; i < sizeof(cents[i]); i++)
+			num = strtol(argv[i], &p, 10);
+			if (!*p)
+				total += num;
+			else
 			{
-				if (total >= cents[i])
-				{
-					count += total / cents[i];
-					total = total % cents[i];
-				}
+				printf("Error\n");
+				return (1);
 			}
 		}
-		if (total == 1)
-			count++;
 	}
-	else
-	{
-		printf("Error\n");
-		return (1);
-	}
-
-	printf("%d\n", count);
+	printf("%d\n", total);
 	return (0);
 }
