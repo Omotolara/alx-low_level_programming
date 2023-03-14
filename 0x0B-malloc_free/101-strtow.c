@@ -99,13 +99,18 @@ char **strtow(char *str)
 			{
 				while (str[j] != '\0' && str[j] != ' ')
 				{
-					nstr[i][k] = str[j]; j++; k++;
+					nstr[i][k] = str[j];
+					j++;
+					k++;
 				}
-				nstr[i][k] = '\0'; i++; k = 0;
+				nstr[i][k] = '\0';
+				i++;
+				k = 0;
 			}
 			j++;
 		}
 	}
-	nstr[i] = NULL;	free(sizes);
+	nstr[i] = NULL;
+	free(sizes);
 	return (nstr);
 }
