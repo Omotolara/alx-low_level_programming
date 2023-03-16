@@ -246,6 +246,7 @@ char *check_zero(char *str, int len)
 		}
 		num[i] = '\0';
 	}
+
 	return (num);
 }
 
@@ -297,5 +298,6 @@ int main(int argc, char *argv[])
 	rev_string(ans, anslen);
 	print_str(ans);
 	free(ans); free(num1); free(num2);
+
 	return (0);
 }
