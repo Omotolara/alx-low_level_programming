@@ -6,20 +6,22 @@
  * @size: size of each element
  * Return: Null if error, pointer to allocated memory if otherwise
  */
-
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *p;
-	unsigned int i;
+	char *ar;
+	unsigned int ar_size, i;
 
-	if (nmemb <= 0 || size <= 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
-
-	p = malloc(nmemb * size);
-	if (p == NULL)
+	ar_size = nmemb * size;
+	ar = malloc(ar_size);
+	if (ar == NULL)
 		return (NULL);
-	for (i = 0; i < nmemb; i++)
-		p[i] = 0;
+	while (i < ar_size)
+	{
+		ar[i] = 0;
+		i++;
+	}
 
-	return (p);
+	return (ar);
 }
