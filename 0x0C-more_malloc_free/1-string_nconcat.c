@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -7,23 +7,39 @@ include "main.h"
  * @s1: first string
  * @s2: second string
  * @n: number of  bytes of s2 to add to s1
- * Return: NULL if fail, pointer to malloc memory otherwise
+ * Return: NULL if fail, pointer to malloc memory size otherwise.
  */
+char *string_nconcat(char *s1, char *s2, unsigned int n)
+{
+	char *nstr, *empt;
+	unsigned int i, len, j;
+	unsigned int size;
 
-char *string_nconcat(char *s1, char *s2, unsigned int n) {
-    if (s1 == NULL) s1 = "";
-    if (s2 == NULL) s2 = "";
-    
-    size_t s1_len = strlen(s1);
-    size_t s2_len = strlen(s2);
-    size_t new_len = (n >= s2_len) ? s1_len + s2_len : s1_len + n;
-
-    char *new_str = (char*) malloc(sizeof(char) * (new_len + 1));
-    if (new_str == NULL) return NULL;
-    
-    memcpy(new_str, s1, s1_len);
-    memcpy(new_str + s1_len, s2, (n >= s2_len) ? s2_len : n);
-    new_str[new_len] = '\0';
-
-    return new_str;
+	len = 0;
+	empt = "";
+	if (s1 == NULL)
+		s1 = empt;
+	if (s2 == NULL)
+		s2 = empt;
+	while (s1[len] != '\0')
+		len++;
+	size = (len + n) * sizeof(*nstr);
+	nstr = malloc(size + 1);
+	if (nstr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < size && s1[i] != '\0')
+	{
+		nstr[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (i < size && s2[j] != '\0')
+	{
+		nstr[i] = s2[j];
+		i++;
+		j++;
+	}
+	nstr[i] = '\0';
+	return (nstr);
 }
