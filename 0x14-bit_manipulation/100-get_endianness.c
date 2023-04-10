@@ -16,5 +16,5 @@ int get_endianness(void)
 	}
 	else if ((int)*p == 1)
 	{
-		return (1)
+		return (1);
 }
