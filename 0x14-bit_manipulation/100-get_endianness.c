@@ -10,12 +10,11 @@ int get_endianness(void)
 	unsigned int num = 1;
 	char *p = (char *)&num;
 
-	if (int *p == 0)
+	if ((int)*p == 0)
 	{
 		return (0);
 	}
-	else if (int *p == 1)
+	else if ((int)*p == 1)
 	{
-		return (1);
-	}
+		return (1)
 }
