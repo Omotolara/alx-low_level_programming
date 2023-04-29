@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <errno.h>
+#define ERR STDERR_FILENO
 #define BUFF_SIZE 1024
 
 int _printchar(char c);
