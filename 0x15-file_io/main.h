@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <errno.h>
 #define BUFF_SIZE 1024
 
 int _printchar(char c);
