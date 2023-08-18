@@ -11,7 +11,7 @@
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	char password[7], *mask;
+	char key[7], *mask;
 	int len = strlen(argv[1]), a, cont;
 
 	mask = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
